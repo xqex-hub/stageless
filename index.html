@@ -633,8 +633,9 @@ footer ul a:hover{color:var(--text)}
 }
 .music-btn:hover{background:var(--accent-light);transform:scale(1.08);box-shadow:0 6px 28px var(--accent-glow)}
 .music-btn svg{width:18px;height:18px;transition:all 0.3s ease}
-.music-btn.playing svg{animation:musicPulse 2s ease-in-out infinite}
-@keyframes musicPulse{0%,100%{opacity:1}50%{opacity:0.5}}
+.music-btn.playing{box-shadow:0 0 20px rgba(138,40,64,0.4),0 0 40px rgba(138,40,64,0.15)}
+.music-btn.playing svg{animation:musicPulse 1.5s ease-in-out infinite}
+@keyframes musicPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.7;transform:scale(0.9)}}
 
 @media(hover:none){
   .why-card:hover{background:linear-gradient(145deg,rgba(107,29,42,0.12),rgba(107,29,42,0.04));border-color:rgba(107,29,42,0.2);transform:translateY(-2px)}
