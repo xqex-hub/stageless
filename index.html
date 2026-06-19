@@ -180,6 +180,27 @@ nav.scrolled{background:rgba(0,0,0,0.92)}
   80%{opacity:0.6}
   100%{transform:translateY(-110vh) translateX(30px) scale(1.2);opacity:0}
 }
+.hero-firefly{
+  position:absolute;z-index:1;pointer-events:none;
+  width:4px;height:4px;border-radius:50%;
+  background:#f0ece6;box-shadow:0 0 6px 2px rgba(160,48,64,0.15),0 0 20px 4px rgba(160,48,64,0.05);
+  animation:fireflyDrift 18s ease-in-out infinite;
+  opacity:0;
+}
+.hero-firefly:nth-child(1){top:30%;left:25%;animation-delay:2s;animation-duration:22s}
+.hero-firefly:nth-child(2){top:60%;left:65%;animation-delay:7s;animation-duration:18s;width:3px;height:3px}
+.hero-firefly:nth-child(3){top:45%;left:45%;animation-delay:12s;animation-duration:25s;width:5px;height:5px}
+.hero-firefly:nth-child(4){top:70%;left:15%;animation-delay:5s;animation-duration:20s;width:2px;height:2px}
+.hero-firefly:nth-child(5){top:25%;left:75%;animation-delay:9s;animation-duration:16s;width:3px;height:3px}
+@keyframes fireflyDrift{
+  0%{opacity:0;transform:translate(0,0) scale(0)}
+  10%{opacity:0.8}
+  30%{transform:translate(30px,-20px) scale(1.2)}
+  50%{transform:translate(-20px,-50px) scale(0.8)}
+  70%{transform:translate(40px,-80px) scale(1)}
+  90%{opacity:0.4}
+  100%{opacity:0;transform:translate(-10px,-120px) scale(0)}
+}
 .hero-particles{position:absolute;inset:0;z-index:1;overflow:hidden}
 .hero-particle{
   position:absolute;width:2px;height:2px;
@@ -856,6 +877,11 @@ footer ul a:hover{color:var(--text)}
       <span></span><span></span><span></span>
     </div>
     <div class="overlay"></div>
+    <div class="hero-firefly"></div>
+    <div class="hero-firefly"></div>
+    <div class="hero-firefly"></div>
+    <div class="hero-firefly"></div>
+    <div class="hero-firefly"></div>
   </div>
   <div class="hero-particles" id="particles"></div>
   <div class="container hero-content">
