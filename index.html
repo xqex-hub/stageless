@@ -75,8 +75,13 @@ ul{list-style:none}
 }
 .btn-primary{
   background:var(--accent);color:#fff;border-color:var(--accent);
+  animation:ctaPulse 3s ease-in-out infinite;
 }
-.btn-primary:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 10px 40px var(--accent-glow)}
+.btn-primary:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 10px 40px var(--accent-glow);animation:none}
+@keyframes ctaPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(107,29,42,0.4)}
+  50%{box-shadow:0 0 20px 8px rgba(107,29,42,0.15)}
+}
 .btn-outline{
   background:transparent;color:var(--text);border-color:rgba(240,236,230,0.15);
 }
