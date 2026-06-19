@@ -221,6 +221,17 @@ nav.scrolled{background:rgba(0,0,0,0.92)}
   90%{opacity:0.4}
   100%{opacity:0;transform:translate(-10px,-120px) scale(0)}
 }
+/* CURSOR GLOW - Diablo style */
+.cursor-glow{
+  position:fixed;top:0;left:0;width:400px;height:400px;z-index:9995;
+  pointer-events:none;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(160,48,64,0.06) 0%,rgba(160,48,64,0.02) 40%,transparent 70%);
+  transform:translate(-50%,-50%);
+  transition:opacity 0.3s ease;
+  opacity:0;will-change:transform;
+}
+body:hover .cursor-glow{opacity:1}
+@media(hover:none){.cursor-glow{display:none}}
 .hero-particles{position:absolute;inset:0;z-index:1;overflow:hidden}
 .hero-particle{
   position:absolute;width:2px;height:2px;
@@ -1314,6 +1325,9 @@ footer ul a:hover{color:var(--text)}
   </div>
 </footer>
 
+<!-- ===== CURSOR GLOW ===== -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
 <!-- ===== MUSIC PLAYER ===== -->
 <button class="music-btn" id="musicBtn" onclick="toggleMusic()" aria-label="Włącz/wyłącz muzykę">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
@@ -1337,6 +1351,16 @@ footer ul a:hover{color:var(--text)}
 function acceptCookies(){document.getElementById('cookieBar').classList.remove('show');sessionStorage.setItem('cookies_accepted','true');}
 function declineCookies(){document.getElementById('cookieBar').classList.remove('show');sessionStorage.setItem('cookies_accepted','false');}
 (function(){if(!sessionStorage.getItem('cookies_accepted')){setTimeout(()=>document.getElementById('cookieBar').classList.add('show'),600);}})();
+
+// === CURSOR GLOW ===
+(function(){
+  const glow=document.getElementById('cursorGlow');
+  if(!glow)return;
+  document.addEventListener('mousemove',function(e){
+    glow.style.left=e.clientX+'px';
+    glow.style.top=e.clientY+'px';
+  });
+})();
 
 // === MUSIC ===
 const bgMusic=document.getElementById('bgMusic');const musicBtn=document.getElementById('musicBtn');let musicPlaying=false;
