@@ -638,6 +638,16 @@ footer ul a:hover{color:var(--text)}
 .music-btn.playing svg{animation:musicPulse 1.5s ease-in-out infinite}
 @keyframes musicPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.7;transform:scale(0.9)}}
 
+/* LOGO DRIFT */
+@keyframes logoDrift{
+  0%,100%{transform:translateX(0)}
+  15%{transform:translateX(-1.5px)}
+  30%{transform:translateX(1px)}
+  45%{transform:translateX(-0.5px)}
+  60%{transform:translateX(1.5px)}
+  75%{transform:translateX(-1px)}
+}
+
 @media(hover:none){
   .why-card:hover{background:linear-gradient(145deg,rgba(107,29,42,0.12),rgba(107,29,42,0.04));border-color:rgba(107,29,42,0.2);transform:translateY(-2px)}
   .why-card:hover::before{opacity:1}
@@ -894,7 +904,7 @@ footer ul a:hover{color:var(--text)}
 <!-- ===== NAV ===== -->
 <nav id="navbar">
   <a href="#hero" class="nav-logo" aria-label="Stageless" style="display:flex;align-items:center;text-decoration:none">
-    <img src="assets/img/stageless-logo.png" alt="Stageless" style="height:36px;width:auto;display:block">
+    <img src="assets/img/stageless-logo.png" alt="Stageless" style="height:36px;width:auto;display:block;animation:logoDrift 6s ease-in-out infinite">
   </a>
 
   <div class="nav-links" id="navLinks">
