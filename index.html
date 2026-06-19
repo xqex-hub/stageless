@@ -161,6 +161,25 @@ nav.scrolled{background:rgba(0,0,0,0.92)}
   position:absolute;inset:0;z-index:2;
   background:linear-gradient(180deg,rgba(7,7,9,0.5) 0%,rgba(7,7,9,0.65) 40%,var(--bg) 100%);
 }
+.hero-smoke{
+  position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;
+}
+.hero-smoke span{
+  position:absolute;bottom:-10%;left:50%;width:300px;height:300px;
+  border-radius:50%;
+  background:radial-gradient(ellipse,rgba(200,180,150,0.04) 0%,transparent 70%);
+  animation:smokeRise 12s ease-in-out infinite;
+  filter:blur(40px);
+}
+.hero-smoke span:nth-child(1){left:35%;animation-delay:0s;width:400px;height:400px}
+.hero-smoke span:nth-child(2){left:55%;animation-delay:4s;width:250px;height:250px}
+.hero-smoke span:nth-child(3){left:45%;animation-delay:8s;width:350px;height:350px}
+@keyframes smokeRise{
+  0%{transform:translateY(0) translateX(0) scale(0.8);opacity:0}
+  20%{opacity:1}
+  80%{opacity:0.6}
+  100%{transform:translateY(-110vh) translateX(30px) scale(1.2);opacity:0}
+}
 .hero-particles{position:absolute;inset:0;z-index:1;overflow:hidden}
 .hero-particle{
   position:absolute;width:2px;height:2px;
@@ -833,6 +852,9 @@ footer ul a:hover{color:var(--text)}
   <div class="hero-bg">
     <img src="assets/img/hero-bg.png" alt="Stageless wydarzenie" loading="eager">
     <div class="light-sweep"></div>
+    <div class="hero-smoke">
+      <span></span><span></span><span></span>
+    </div>
     <div class="overlay"></div>
   </div>
   <div class="hero-particles" id="particles"></div>
