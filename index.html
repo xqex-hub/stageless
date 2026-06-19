@@ -1406,6 +1406,14 @@ function declineCookies(){document.getElementById('cookieBar').classList.remove(
   });
 })();
 
+// === CLICK SOUND ===
+(function(){
+  const snd=new Audio('assets/sound/click.mp3');snd.volume=0.25;
+  document.querySelectorAll('a,.btn,.nav-cta,.faq-q,.cookie-btn,.phone-pill,.music-btn,.hamburger').forEach(function(el){
+    el.addEventListener('click',function(){snd.currentTime=0;snd.play().catch(function(){})});
+  });
+})();
+
 // === MUSIC ===
 const bgMusic=document.getElementById('bgMusic');const musicBtn=document.getElementById('musicBtn');let musicPlaying=false;
 function toggleMusic(){
