@@ -180,6 +180,26 @@ nav.scrolled{background:rgba(0,0,0,0.92)}
   80%{opacity:0.6}
   100%{transform:translateY(-110vh) translateX(30px) scale(1.2);opacity:0}
 }
+.hero-lightning{
+  position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;
+}
+.hero-lightning span{
+  position:absolute;top:10%;left:0;width:1px;height:0;
+  background:linear-gradient(180deg,rgba(200,210,255,0.5),transparent);
+  box-shadow:0 0 60px 30px rgba(180,190,255,0.04),0 0 120px 60px rgba(180,190,255,0.02);
+  animation:lightningStrike 8s ease-in-out infinite;
+  transform-origin:top;opacity:0;
+  filter:blur(2px);
+}
+.hero-lightning span:nth-child(1){left:20%;animation-delay:3s;height:60vh}
+.hero-lightning span:nth-child(2){left:25%;animation-delay:7s;height:40vh;width:1.5px}
+@keyframes lightningStrike{
+  0%,95%,100%{opacity:0;transform:scaleY(0)}
+  2%{opacity:0.15;transform:scaleY(1)}
+  4%{opacity:0;transform:scaleY(0.8)}
+  6%{opacity:0.25;transform:scaleY(1)}
+  8%{opacity:0;transform:scaleY(0.5)}
+}
 .hero-firefly{
   position:absolute;z-index:1;pointer-events:none;
   width:4px;height:4px;border-radius:50%;
@@ -875,6 +895,9 @@ footer ul a:hover{color:var(--text)}
     <div class="light-sweep"></div>
     <div class="hero-smoke">
       <span></span><span></span><span></span>
+    </div>
+    <div class="hero-lightning">
+      <span></span><span></span>
     </div>
     <div class="overlay"></div>
     <div class="hero-firefly"></div>
