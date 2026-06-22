@@ -1519,7 +1519,13 @@ function declineCookies(){document.getElementById('cookieBar').classList.remove(
             current+=step;
             el.classList.add('shimmer');
             setTimeout(function(){el.classList.remove('shimmer')},300);
-            if(current>=target){current=target;clearInterval(interval)}
+            if(current>=target){current=target;clearInterval(interval);
+              if(target===12){
+                el.classList.add('pulse-steady');
+                var pulseTimer=setInterval(function(){el.classList.toggle('shimmer')},2000);
+                el.dataset.pulseTimer='1';
+              }
+            }
             el.textContent=el.textContent.includes('%')?current+'%':current+(target>99?'+':'');
           },40);
         });
