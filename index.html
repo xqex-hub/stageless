@@ -1250,6 +1250,58 @@ footer ul a:hover{color:var(--text)}
   </div>
 </section>
 
+<!-- ===== OPINIE ===== -->
+<style>
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:40px}
+.testimonial-card{border:1px solid rgba(240,236,230,0.1);border-radius:16px;padding:32px 28px;background:linear-gradient(145deg,#0e0e16,#08080c)}
+.testimonial-card:hover{border-color:rgba(138,40,64,0.3);transform:translateY(-4px);transition:all 0.5s cubic-bezier(0.22,1,0.36,1)}
+.testimonial-card .stars{color:#8a2840;font-size:1rem;letter-spacing:4px;margin-bottom:20px}
+.testimonial-card blockquote{font-size:1rem;line-height:1.85;color:#d8d4ce;margin-bottom:24px;font-style:italic;font-weight:300}
+.testimonial-card blockquote::before{content:'"';color:#8a2840;font-size:2rem;line-height:0;vertical-align:-8px;margin-right:4px}
+.testimonial-card footer{display:flex;align-items:center;gap:12px}
+.testimonial-card .avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1e1e2c,#8a2840);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;color:#fff;flex-shrink:0}
+.testimonial-card cite{font-style:normal;font-size:0.85rem;color:#f0ece6;font-weight:600}
+.testimonial-card cite span{display:block;font-size:0.75rem;color:#888;font-weight:400;margin-top:2px}
+@media(max-width:768px){
+  .testimonials-grid{grid-template-columns:1fr;gap:16px;margin-top:28px}
+  .testimonial-card{padding:24px 20px}
+  .testimonial-card blockquote{font-size:0.92rem}
+}
+</style>
+<section class="section" id="opinie" style="background:var(--bg)">
+  <div class="container">
+    <div class="section-header centered reveal">
+      <div class="section-label">Opinie</div>
+      <h2 class="section-title">Zaufali nam</h2>
+      <p class="section-sub" style="text-align:center;margin:0 auto">
+        Ponad 100 zrealizowanych wydarzeń. Oto co mówią nasi klienci.
+      </p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>Po raz pierwszy od lat nasi pracownicy naprawdę ze sobą rozmawiali &mdash; nie o pracy, ale o przeżyciu. Stageless zrozumiał naszą firmę lepiej niż my sami.</blockquote>
+        <footer><div class="avatar">MK</div><cite>Michał Kowalski<small>HR Director, <span>sektor technologiczny</span></small></cite></footer>
+      </div>
+      <div class="testimonial-card reveal r2">
+        <div class="stars">★★★★★</div>
+        <blockquote>Mówili, że jubileusz 20-lecia będzie nudny. Stało się dokładnie odwrotnie &mdash; do dziś słyszę &bdquo;kiedy następny&rdquo;. Profesjonalizm i kreatywność na najwyższym poziomie.</blockquote>
+        <footer><div class="avatar">AR</div><cite>Anna Rutkowska<small>CEO, <span>firma produkcyjna</span></small></cite></footer>
+      </div>
+      <div class="testimonial-card reveal r3">
+        <div class="stars">★★★★★</div>
+        <blockquote>Potrzebowaliśmy czegoś świeżego na premierę produktu. Stageless zaproponował format, którego wcześniej nikt nie widział. Efekt? Media pisały o nas przez tydzień.</blockquote>
+        <footer><div class="avatar">TN</div><cite> Tomasz Nowak<small>Marketing Manager, <span>branża SaaS</span></small></cite></footer>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px;font-size:0.9rem;color:#888">
+      <span style="color:#8a2840;font-weight:700;font-size:1.5rem">100+</span> wydarzeń &middot;
+      <span style="color:#8a2840;font-weight:700;font-size:1.5rem">95%</span> rekomendacji &middot;
+      <span style="color:#8a2840;font-weight:700;font-size:1.5rem">12 lat</span> doświadczenia
+    </div>
+  </div>
+</section>
+
 <!-- ===== FAQ ===== -->
 <section class="section" id="faq">
   <div class="container">
