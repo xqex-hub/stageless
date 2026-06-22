@@ -1039,8 +1039,9 @@ footer ul a:hover{color:var(--text)}
 </section>
 
 <!-- ===== CO TWORZYMY ===== -->
-<section class="section" id="cotworzymy" style="background:var(--bg-alt)">
-  <div class="container">
+<section class="section" id="cotworzymy" style="background:var(--bg-alt);position:relative;overflow:hidden">
+  <canvas class="orb-canvas" id="orbCanvas" style="position:absolute;inset:0;z-index:0;pointer-events:none"></canvas>
+  <div class="container" style="position:relative;z-index:1">
     <div class="section-header centered reveal">
       <div class="section-label">Co tworzymy</div>
       <h2 class="section-title">Każdy format jest tylko punktem wyjścia.</h2>
@@ -1412,6 +1413,45 @@ function declineCookies(){document.getElementById('cookieBar').classList.remove(
   document.querySelectorAll('a,.btn,.nav-cta,.faq-q,.cookie-btn,.phone-pill,.music-btn,.hamburger').forEach(function(el){
     el.addEventListener('click',function(){snd.currentTime=0;snd.play().catch(function(){})});
   });
+})();
+
+// === FLOATING ORBS ===
+(function(){
+  const c=document.getElementById('orbCanvas');if(!c)return;
+  const ctx=c.getContext('2d');
+  let w,h,orbs=[];
+  function resize(){w=c.width=window.innerWidth;h=c.height=c.parentElement.offsetHeight;c.style.height=h+'px'}
+  window.addEventListener('resize',resize);resize();
+  for(let i=6;i--;)orbs.push({
+    x:Math.random()*w,y:Math.random()*h,r:5+Math.random()*8,
+    vx:(Math.random()-0.5)*0.4,vy:(Math.random()-0.5)*0.4,
+    o:0.08+Math.random()*0.1
+  });
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    for(let i=0;i<orbs.length;i++){
+      let a=orbs[i];
+      a.x+=a.vx;a.y+=a.vy;
+      if(a.x<a.r||a.x>w-a.r)a.vx*=-1,a.x=Math.max(a.r,Math.min(w-a.r,a.x));
+      if(a.y<a.r||a.y>h-a.r)a.vy*=-1,a.y=Math.max(a.r,Math.min(h-a.r,a.y));
+      for(let j=i+1;j<orbs.length;j++){
+        let b=orbs[j],dx=a.x-b.x,dy=a.y-b.y,dist=Math.sqrt(dx*dx+dy*dy),min=a.r+b.r+20;
+        if(dist<min&&dist>0.1){
+          let ang=Math.atan2(dy,dx),force=(min-dist)/min*0.5;
+          a.vx+=Math.cos(ang)*force;a.vy+=Math.sin(ang)*force;
+          b.vx-=Math.cos(ang)*force;b.vy-=Math.sin(ang)*force;
+        }
+      }
+      let grad=ctx.createRadialGradient(a.x,a.y,0,a.x,a.y,a.r*2.5);
+      grad.addColorStop(0,'rgba(138,40,64,'+a.o+')');
+      grad.addColorStop(0.4,'rgba(138,40,64,'+(a.o*0.4)+')');
+      grad.addColorStop(1,'rgba(138,40,64,0)');
+      ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,Math.PI*2);
+      ctx.fillStyle=grad;ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
 })();
 
 // === MUSIC ===
