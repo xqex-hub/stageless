@@ -307,25 +307,50 @@ body:hover .cursor-glow{opacity:1}
   animation-delay:0.1s;margin-top:8px;
 }
 /* GHOST CHARACTER - Cinematic */
+.hero-ghost-wrap{
+  position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;
+}
 .hero-ghost{
-  position:absolute;bottom:5%;right:-15%;z-index:1;height:80vh;width:auto;
+  position:absolute;bottom:2%;right:-15%;height:82vh;width:auto;
   opacity:0;pointer-events:none;
   mix-blend-mode:screen;
-  filter:blur(3px) brightness(1.2) contrast(0.9);
-  animation:ghostWalk 20s cubic-bezier(0.4,0,0.2,1) infinite;
+  filter:blur(2px) brightness(0.35) contrast(0.5);
+  animation:ghostWalk 22s cubic-bezier(0.45,0,0.2,1) infinite;
   will-change:transform,opacity,filter;
+  -webkit-mask:linear-gradient(90deg,transparent 2%,#000 15%,#000 85%,transparent 98%);
+  mask:linear-gradient(90deg,transparent 2%,#000 15%,#000 85%,transparent 98%);
 }
 @keyframes ghostWalk{
-  0%{opacity:0;transform:translateX(0) scaleX(1);filter:blur(8px) brightness(1.5)}
-  8%{opacity:0.1;transform:translateX(-15vw) scaleX(1);filter:blur(3px) brightness(1.2)}
-  30%{opacity:0.12;transform:translateX(-55vw) scaleX(1);filter:blur(1px) brightness(1)}
-  48%{opacity:0.06;transform:translateX(-95vw) scaleX(1);filter:blur(4px) brightness(1.1)}
-  52%{opacity:0;transform:translateX(-120vw) scaleX(1);filter:blur(8px) brightness(1.3)}
-  55%{opacity:0;transform:translateX(-110vw) scaleX(-1)}
-  65%{opacity:0.06;transform:translateX(-65vw) scaleX(-1);filter:blur(3px) brightness(1)}
-  80%{opacity:0.1;transform:translateX(-25vw) scaleX(-1);filter:blur(1px) brightness(0.9)}
-  92%{opacity:0.06;transform:translateX(5vw) scaleX(-1);filter:blur(4px) brightness(1.1)}
-  100%{opacity:0;transform:translateX(20vw) scaleX(-1);filter:blur(8px) brightness(1.4)}
+  0%{opacity:0;transform:translateX(15vw) scaleX(1) rotateY(0deg);filter:blur(6px) brightness(0.25) contrast(0.4)}
+  6%{opacity:0.08;transform:translateX(0) scaleX(1) rotateY(0deg);filter:blur(3px) brightness(0.3) contrast(0.5)}
+  20%{opacity:0.12;transform:translateX(-35vw) scaleX(1) rotateY(0deg);filter:blur(1px) brightness(0.35) contrast(0.5)}
+  32%{opacity:0.1;transform:translateX(-60vw) scaleX(1) rotateY(-15deg);filter:blur(1px) brightness(0.35) contrast(0.5)}
+  38%{opacity:0.14;transform:translateX(-75vw) scaleX(1) rotateY(-25deg);filter:blur(0.5px) brightness(0.4) contrast(0.55)}
+  42%{opacity:0.08;transform:translateX(-85vw) scaleX(1) rotateY(0deg);filter:blur(2px) brightness(0.3) contrast(0.5)}
+  47%{opacity:0;transform:translateX(-110vw) scaleX(1);filter:blur(6px) brightness(0.2) contrast(0.4)}
+  52%{opacity:0;transform:translateX(-110vw) scaleX(-1)}
+  58%{opacity:0.06;transform:translateX(-85vw) scaleX(-1);filter:blur(3px) brightness(0.3) contrast(0.5)}
+  68%{opacity:0.1;transform:translateX(-55vw) scaleX(-1);filter:blur(1px) brightness(0.35) contrast(0.5)}
+  75%{opacity:0.12;transform:translateX(-35vw) scaleX(-1) rotateY(15deg);filter:blur(0.5px) brightness(0.4) contrast(0.55)}
+  82%{opacity:0.08;transform:translateX(-15vw) scaleX(-1);filter:blur(2px) brightness(0.3) contrast(0.5)}
+  90%{opacity:0.06;transform:translateX(5vw) scaleX(-1);filter:blur(4px) brightness(0.25) contrast(0.45)}
+  100%{opacity:0;transform:translateX(20vw) scaleX(-1);filter:blur(6px) brightness(0.2) contrast(0.4)}
+}
+/* Ghost mobile - reduce */
+@media(max-width:768px){
+  .hero-ghost{height:50vh;bottom:5%}
+  @keyframes ghostWalk{
+    0%{opacity:0;transform:translateX(15vw) scaleX(1)}
+    6%{opacity:0.06;transform:translateX(0) scaleX(1)}
+    20%{opacity:0.08;transform:translateX(-35vw) scaleX(1)}
+    35%{opacity:0.1;transform:translateX(-60vw) scaleX(1)}
+    47%{opacity:0;transform:translateX(-110vw) scaleX(1)}
+    52%{opacity:0;transform:translateX(-110vw) scaleX(-1)}
+    60%{opacity:0.05;transform:translateX(-85vw) scaleX(-1)}
+    75%{opacity:0.08;transform:translateX(-35vw) scaleX(-1)}
+    90%{opacity:0.04;transform:translateX(5vw) scaleX(-1)}
+    100%{opacity:0;transform:translateX(20vw) scaleX(-1)}
+  }
 }
 @keyframes vlineGrow{
   0%{height:0}
@@ -983,7 +1008,9 @@ footer ul a:hover{color:var(--text)}
     <div class="hero-firefly"></div>
     <div class="hero-firefly"></div>
   </div>
-  <img class="hero-ghost" src="https://v3b.fal.media/files/b/0a9f56fd/bCxwLRT_OnYcUsvfXZAWF_RNg4Pt2R.png" alt="" aria-hidden="true">
+  <div class="hero-ghost-wrap">
+    <img class="hero-ghost" src="https://v3b.fal.media/files/b/0a9f56fd/bCxwLRT_OnYcUsvfXZAWF_RNg4Pt2R.png" alt="" aria-hidden="true">
+  </div>
   <div class="secret-hat">
       <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <ellipse cx="20" cy="28" rx="16" ry="4" fill="#6b1d2a"/>
