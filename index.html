@@ -1415,12 +1415,27 @@ function declineCookies(){document.getElementById('cookieBar').classList.remove(
   });
 })();
 
-// === FLOATING ORBS ===
+// === FLOATING ORBS + CURRENT LINES ===
 (function(){
   const c=document.getElementById('orbCanvas');if(!c)return;
   const ctx=c.getContext('2d');
-  let w,h,orbs=[];
-  function resize(){w=c.width=window.innerWidth;h=c.height=c.parentElement.offsetHeight;c.style.height=h+'px'}
+  let w,h,orbs=[],time=0,cardNodes=[];
+  function resize(){
+    w=c.width=window.innerWidth;
+    const parent=c.parentElement;
+    h=c.height=parent.offsetHeight;
+    c.style.height=h+'px';
+    // Znajdz karty po animacji
+    setTimeout(updateCards,100);
+  }
+  function updateCards(){
+    cardNodes=[];
+    document.querySelectorAll('#cotworzymy .goal-card').forEach(function(el){
+      const r=el.getBoundingClientRect();
+      const pr=c.parentElement.getBoundingClientRect();
+      cardNodes.push({x:r.left-pr.left+r.width/2,y:r.top-pr.top+r.height/2});
+    });
+  }
   window.addEventListener('resize',resize);resize();
   for(let i=6;i--;)orbs.push({
     x:Math.random()*w,y:Math.random()*h,r:5+Math.random()*8,
@@ -1429,6 +1444,38 @@ function declineCookies(){document.getElementById('cookieBar').classList.remove(
   });
   function draw(){
     ctx.clearRect(0,0,w,h);
+    // Rysuj linie pradem
+    if(cardNodes.length>1){
+      ctx.strokeStyle='rgba(138,40,64,0.12)';
+      ctx.lineWidth=1.5;ctx.setLineDash([]);
+      ctx.beginPath();
+      for(let i=0;i<cardNodes.length;i++){
+        const n=cardNodes[i];
+        if(i===0)ctx.moveTo(n.x,n.y);else ctx.lineTo(n.x,n.y);
+      }
+      ctx.stroke();
+      // Plywajace kulki pradu
+      ctx.fillStyle='rgba(138,40,64,0.35)';
+      for(let i=0;i<cardNodes.length-1;i++){
+        const a=cardNodes[i],b=cardNodes[i+1];
+        const dx=b.x-a.x,dy=b.y-a.y,dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<5)continue;
+        const speed=0.003;
+        const t=(time*speed+(i*0.2))%1;
+        const nx=a.x+dx*t,ny=a.y+dy*t;
+        // Glowna kulka
+        ctx.beginPath();ctx.arc(nx,ny,2.5,0,Math.PI*2);
+        ctx.fillStyle='rgba(200,60,80,0.6)';ctx.fill();
+        ctx.beginPath();ctx.arc(nx,ny,5,0,Math.PI*2);
+        ctx.fillStyle='rgba(138,40,64,0.15)';ctx.fill();
+        // Druga kulka w przeciwienstwie
+        const t2=(time*speed+0.5+(i*0.2))%1;
+        const nx2=a.x+dx*t2,ny2=a.y+dy*t2;
+        ctx.beginPath();ctx.arc(nx2,ny2,2,0,Math.PI*2);
+        ctx.fillStyle='rgba(200,60,80,0.4)';ctx.fill();
+      }
+    }
+    // Rysuj orby (kuleczki)
     for(let i=0;i<orbs.length;i++){
       let a=orbs[i];
       a.x+=a.vx;a.y+=a.vy;
@@ -1449,6 +1496,7 @@ function declineCookies(){document.getElementById('cookieBar').classList.remove(
       ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,Math.PI*2);
       ctx.fillStyle=grad;ctx.fill();
     }
+    time+=16;
     requestAnimationFrame(draw);
   }
   draw();
