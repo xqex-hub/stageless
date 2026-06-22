@@ -575,9 +575,9 @@ body:hover .cursor-glow{opacity:1}
 .form-group textarea{min-height:100px;resize:vertical}
 .form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239a9490' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;cursor:pointer}
 .form-footer{display:flex;flex-direction:column;gap:12px}
-.form-footer .checkbox-group{display:flex;align-items:flex-start;gap:10px}
-.form-footer .checkbox-group input[type="checkbox"]{width:18px;height:18px;margin-top:3px;accent-color:var(--accent-light);cursor:pointer}
-.form-footer .checkbox-group label{font-size:0.8rem;color:var(--text-muted);cursor:pointer;line-height:1.5}
+.form-footer .checkbox-group{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.form-footer .checkbox-group input[type="checkbox"]{width:18px;height:18px;margin-top:3px;accent-color:var(--accent-light);cursor:pointer;flex-shrink:0;min-width:18px}
+.form-footer .checkbox-group label{font-size:0.8rem;color:var(--text-muted);cursor:pointer;line-height:1.5;padding-top:1px}
 .form-success{
   display:none;padding:28px;background:linear-gradient(135deg,rgba(107,29,42,0.1),rgba(107,29,42,0.05));
   border:1px solid var(--accent);border-radius:var(--radius);text-align:center;margin-top:24px;
