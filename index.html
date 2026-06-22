@@ -1252,20 +1252,40 @@ footer ul a:hover{color:var(--text)}
 
 <!-- ===== OPINIE ===== -->
 <style>
-.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:40px}
-.testimonial-card{border:1px solid rgba(240,236,230,0.1);border-radius:16px;padding:32px 28px;background:linear-gradient(145deg,#0e0e16,#08080c)}
-.testimonial-card:hover{border-color:rgba(138,40,64,0.3);transform:translateY(-4px);transition:all 0.5s cubic-bezier(0.22,1,0.36,1)}
-.testimonial-card .stars{color:#8a2840;font-size:1rem;letter-spacing:4px;margin-bottom:20px}
-.testimonial-card blockquote{font-size:1rem;line-height:1.85;color:#d8d4ce;margin-bottom:24px;font-style:italic;font-weight:300}
-.testimonial-card blockquote::before{content:'"';color:#8a2840;font-size:2rem;line-height:0;vertical-align:-8px;margin-right:4px}
-.testimonial-card footer{display:flex;align-items:center;gap:12px}
-.testimonial-card .avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1e1e2c,#8a2840);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;color:#fff;flex-shrink:0}
-.testimonial-card cite{font-style:normal;font-size:0.85rem;color:#f0ece6;font-weight:600}
-.testimonial-card cite span{display:block;font-size:0.75rem;color:#888;font-weight:400;margin-top:2px}
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&display=swap');
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;margin-top:44px}
+.testimonial-card{border:1px solid rgba(240,236,230,0.08);border-radius:18px;padding:36px 32px;background:linear-gradient(160deg,#12121c,#08080e);position:relative;overflow:hidden;transition:all 0.6s cubic-bezier(0.22,1,0.36,1)}
+.testimonial-card::before{content:'';position:absolute;inset:0;border-radius:18px;padding:1px;background:linear-gradient(160deg,rgba(138,40,64,0.12),transparent 60%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.testimonial-card:hover{transform:translateY(-6px);border-color:rgba(138,40,64,0.25)}
+.testimonial-card:hover::before{background:linear-gradient(160deg,rgba(138,40,64,0.25),transparent 60%)}
+.testimonial-card .stars{color:#8a2840;font-size:0.9rem;letter-spacing:5px;margin-bottom:18px;opacity:0.8}
+.testimonial-card blockquote{font-size:1rem;line-height:1.9;color:#d0ccc6;margin-bottom:24px;font-style:italic;font-weight:300;position:relative;padding-left:20px}
+.testimonial-card blockquote::before{content:'"';position:absolute;left:-4px;top:-8px;color:#8a2840;font-size:2.8rem;font-family:'Playfair Display',serif;line-height:1;opacity:0.5}
+.testimonial-card footer{display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid rgba(240,236,230,0.06)}
+.testimonial-card .avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(160deg,#8a2840 30%,#1a0a14 100%);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#f0ece6;flex-shrink:0;letter-spacing:0.5px;border:1px solid rgba(240,236,230,0.1)}
+.testimonial-card cite{font-style:normal;display:flex;flex-direction:column;gap:2px}
+.testimonial-card cite .name{font-size:0.9rem;color:#f0ece6;font-weight:600}
+.testimonial-card cite .title{font-size:0.75rem;color:#8a8a86;font-weight:400;letter-spacing:0.3px}
+/* STATS COUNTER - Diablo style */
+.stats-divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,#8a2840,transparent);margin:0 auto 36px auto}
+.stats-row{display:flex;justify-content:center;align-items:center;gap:40px;flex-wrap:wrap}
+.stat-item{text-align:center;position:relative;padding:0 10px}
+.stat-item:not(:last-child)::after{content:'·';position:absolute;right:-22px;top:50%;transform:translateY(-50%);color:rgba(138,40,64,0.3);font-size:1.2rem}
+.stat-number{font-family:'Cinzel','Playfair Display',Georgia,serif;font-size:2.8rem;font-weight:900;color:#8a2840;line-height:1;letter-spacing:2px;display:block;text-shadow:0 0 30px rgba(138,40,64,0.15),0 0 60px rgba(138,40,64,0.05)}
+.stat-label{font-size:0.8rem;color:#8a8a86;font-weight:300;letter-spacing:1px;text-transform:uppercase;margin-top:6px;display:block}
 @media(max-width:768px){
-  .testimonials-grid{grid-template-columns:1fr;gap:16px;margin-top:28px}
-  .testimonial-card{padding:24px 20px}
-  .testimonial-card blockquote{font-size:0.92rem}
+  .testimonials-grid{grid-template-columns:1fr;gap:20px;margin-top:32px}
+  .testimonial-card{padding:28px 22px}
+  .testimonial-card blockquote{font-size:0.92rem;padding-left:16px}
+  .stats-row{gap:24px}
+  .stat-item:not(:last-child)::after{right:-14px}
+  .stat-number{font-size:2rem}
+  .stat-label{font-size:0.7rem}
+}
+@media(max-width:430px){
+  .stats-row{gap:16px}
+  .stat-number{font-size:1.6rem}
+  .stat-item:not(:last-child)::after{display:none}
 }
 </style>
 <section class="section" id="opinie" style="background:var(--bg)">
@@ -1274,30 +1294,31 @@ footer ul a:hover{color:var(--text)}
       <div class="section-label">Opinie</div>
       <h2 class="section-title">Zaufali nam</h2>
       <p class="section-sub" style="text-align:center;margin:0 auto">
-        Ponad 100 zrealizowanych wydarzeń. Oto co mówią nasi klienci.
+        Ponad sto wydarzeń, które mówią same za siebie.
       </p>
     </div>
     <div class="testimonials-grid">
       <div class="testimonial-card reveal">
-        <div class="stars">★★★★★</div>
+        <div class="stars">✦ ✦ ✦ ✦ ✦</div>
         <blockquote>Po raz pierwszy od lat nasi pracownicy naprawdę ze sobą rozmawiali &mdash; nie o pracy, ale o przeżyciu. Stageless zrozumiał naszą firmę lepiej niż my sami.</blockquote>
-        <footer><div class="avatar">MK</div><cite>Michał Kowalski<small>HR Director, <span>sektor technologiczny</span></small></cite></footer>
+        <footer><div class="avatar">MK</div><cite><span class="name">Michał Kowalski</span><span class="title">HR Director, sektor technologiczny</span></cite></footer>
       </div>
       <div class="testimonial-card reveal r2">
-        <div class="stars">★★★★★</div>
+        <div class="stars">✦ ✦ ✦ ✦ ✦</div>
         <blockquote>Mówili, że jubileusz 20-lecia będzie nudny. Stało się dokładnie odwrotnie &mdash; do dziś słyszę &bdquo;kiedy następny&rdquo;. Profesjonalizm i kreatywność na najwyższym poziomie.</blockquote>
-        <footer><div class="avatar">AR</div><cite>Anna Rutkowska<small>CEO, <span>firma produkcyjna</span></small></cite></footer>
+        <footer><div class="avatar">AR</div><cite><span class="name">Anna Rutkowska</span><span class="title">CEO, firma produkcyjna</span></cite></footer>
       </div>
       <div class="testimonial-card reveal r3">
-        <div class="stars">★★★★★</div>
+        <div class="stars">✦ ✦ ✦ ✦ ✦</div>
         <blockquote>Potrzebowaliśmy czegoś świeżego na premierę produktu. Stageless zaproponował format, którego wcześniej nikt nie widział. Efekt? Media pisały o nas przez tydzień.</blockquote>
-        <footer><div class="avatar">TN</div><cite> Tomasz Nowak<small>Marketing Manager, <span>branża SaaS</span></small></cite></footer>
+        <footer><div class="avatar">TN</div><cite><span class="name">Tomasz Nowak</span><span class="title">Marketing Manager, branża SaaS</span></cite></footer>
       </div>
     </div>
-    <div style="text-align:center;margin-top:32px;font-size:0.9rem;color:#888">
-      <span style="color:#8a2840;font-weight:700;font-size:1.5rem">100+</span> wydarzeń &middot;
-      <span style="color:#8a2840;font-weight:700;font-size:1.5rem">95%</span> rekomendacji &middot;
-      <span style="color:#8a2840;font-weight:700;font-size:1.5rem">12 lat</span> doświadczenia
+    <div class="stats-divider reveal"></div>
+    <div class="stats-row reveal" id="statsCounter">
+      <div class="stat-item"><span class="stat-number" data-target="100">100+</span><span class="stat-label">wydarzeń</span></div>
+      <div class="stat-item"><span class="stat-number" data-target="95">95%</span><span class="stat-label">rekomendacji</span></div>
+      <div class="stat-item"><span class="stat-number" data-target="12">12</span><span class="stat-label">lat doświadczenia</span></div>
     </div>
   </div>
 </section>
@@ -1459,6 +1480,31 @@ function declineCookies(){document.getElementById('cookieBar').classList.remove(
     glow.style.left=e.clientX+'px';
     glow.style.top=e.clientY+'px';
   });
+})();
+
+// === COUNTER ANIMATION ===
+(function(){
+  const stats=document.getElementById('statsCounter');
+  if(!stats)return;
+  const nums=stats.querySelectorAll('.stat-number');
+  const observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        nums.forEach(function(el){
+          const target=parseInt(el.getAttribute('data-target'));
+          if(isNaN(target))return;
+          let current=0,step=Math.ceil(target/40);
+          const interval=setInterval(function(){
+            current+=step;
+            if(current>=target){current=target;clearInterval(interval)}
+            el.textContent=el.textContent.includes('%')?current+'%':current+(target>99?'+':'');
+          },40);
+        });
+        observer.disconnect();
+      }
+    });
+  },{threshold:0.5});
+  observer.observe(stats);
 })();
 
 // === CLICK SOUND ===
