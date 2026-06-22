@@ -1517,26 +1517,19 @@ function handleSubmit(e){
     localStorage.setItem('stageless_inquiries',JSON.stringify(existing));
   }catch(e){}
 
-  // Otwórz klienta poczty z danymi z formularza
-  const subject = encodeURIComponent('Zapytanie ze strony Stageless - ' + data.name);
-  const body = encodeURIComponent(
-    'Imię i nazwisko: ' + data.name + '\n' +
-    'Firma: ' + data.company + '\n' +
-    'E-mail: ' + data.email + '\n' +
-    'Telefon: ' + data.phone + '\n' +
-    'Rodzaj wydarzenia: ' + data.eventType + '\n' +
-    'Termin: ' + data.date + '\n' +
-    'Miejsce: ' + data.venue + '\n' +
-    'Liczba uczestników: ' + data.guests + '\n' +
-    'Budżet: ' + data.budget + '\n' +
-    'Cel: ' + data.goal + '\n' +
-    'Opis: ' + data.description + '\n' +
-    'Zgoda marketingowa: ' + (data.marketing ? 'Tak' : 'Nie')
-  );
-  window.location.href = 'mailto:biuro@artysciulicznikrakowa.pl?subject=' + subject + '&body=' + body;
-  document.getElementById('contactForm').reset();
-  document.getElementById('formSuccess').classList.add('show');
-  setTimeout(()=>document.getElementById('formSuccess').classList.remove('show'),6000);
+  // Wyślij przez Formspree
+  fetch('https://formspree.io/f/xkolnzok',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify(data)
+  }).then(function(r){
+    document.getElementById('contactForm').reset();
+    document.getElementById('formSuccess').classList.add('show');
+    setTimeout(()=>document.getElementById('formSuccess').classList.remove('show'),6000);
+  }).catch(function(){
+    alert('Wystąpił błąd. Spróbuj wysłać maila ręcznie na biuro@artysciulicznikrakowa.pl');
+    window.location.href = 'mailto:biuro@artysciulicznikrakowa.pl?subject=' + encodeURIComponent('Zapytanie ze strony Stageless - ' + data.name) + '&body=' + encodeURIComponent('Nie udało się wysłać przez formularz. Oto dane: ...');
+  });
 }
 </script>
 </body>
