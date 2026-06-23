@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="shortcut icon" href="favicon.ico">
+<title>Dokumenty | Stageless</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',sans-serif;background:#000;color:#f0ece6;line-height:1.8;padding:40px 20px}
+.container{max-width:900px;margin:0 auto}
+h1{font-family:'Playfair Display',Georgia,serif;font-size:2.4rem;font-weight:700;margin-bottom:12px;color:#f0ece6}
+h2{font-family:'Playfair Display',Georgia,serif;font-size:1.3rem;font-weight:600;margin-top:36px;margin-bottom:16px;color:#8a2840}
+p{font-size:0.92rem;color:#c8c2bc;margin-bottom:16px;line-height:1.85}
+a{color:#8a2840;text-decoration:none}
+a:hover{text-decoration:underline}
+.back{display:inline-flex;align-items:center;gap:8px;color:#f0ece6;margin-bottom:40px;font-size:0.85rem;border:1px solid rgba(240,236,230,0.15);padding:10px 20px;border-radius:50px;transition:all 0.3s}
+.back:hover{text-decoration:none;border-color:#8a2840;color:#8a2840}
+.doc-list{display:flex;flex-direction:column;gap:12px;margin-top:32px}
+.doc-item{display:flex;align-items:center;gap:16px;padding:18px 24px;border:1px solid rgba(240,236,230,0.08);border-radius:12px;background:linear-gradient(145deg,#12121c,#08080e);transition:all 0.3s}
+.doc-item:hover{border-color:rgba(138,40,64,0.3);transform:translateX(4px)}
+.doc-icon{width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#8a2840,#1a0a14);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.doc-icon svg{width:20px;height:20px;stroke:#f0ece6;fill:none;stroke-width:1.5}
+.doc-info{flex:1}
+.doc-info h4{font-size:0.95rem;font-weight:600;color:#f0ece6;margin-bottom:2px}
+.doc-info p{font-size:0.78rem;color:#8a8a86;margin:0}
+.doc-link{font-size:0.78rem;color:#8a2840;white-space:nowrap}
+.category{margin-top:40px}
+.category-label{font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:#8a2840;font-weight:600;margin-bottom:16px}
+@media(max-width:768px){
+  .doc-item{padding:14px 16px;gap:12px}
+  .doc-icon{width:34px;height:34px}
+  .doc-icon svg{width:16px;height:16px}
+  .doc-info h4{font-size:0.88rem}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="/" class="back">← Powrót do strony głównej</a>
+  <h1>Dokumenty</h1>
+  <p>Polityki wewnętrzne i procedury Stageless / Artyści Uliczni Krakowa.</p>
+
+  <div class="category">
+    <div class="category-label">Polityki</div>
+    <div class="doc-list">
+      <a href="docs/02_Standardy_Ochrony_Maloletnich_Ustawa_Kamilka.pdf" class="doc-item" target="_blank">
+        <div class="doc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="doc-info"><h4>Standardy Ochrony Małoletnich</h4><p>Ustawa Kamilka – procedury i standardy</p></div>
+        <span class="doc-link">PDF →</span>
+      </a>
+      <a href="docs/04_Polityka_Rownosci_Roznorodnosci_Dostepnosci.pdf" class="doc-item" target="_blank">
+        <div class="doc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="doc-info"><h4>Polityka Równości, Różnorodności i Dostępności</h4><p>Zasady równego traktowania i dostępności</p></div>
+        <span class="doc-link">PDF →</span>
+      </a>
+      <a href="docs/06_Kodeks_Etyki.pdf" class="doc-item" target="_blank">
+        <div class="doc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="doc-info"><h4>Kodeks Etyki</h4><p>Standardy etyczne i wartości organizacji</p></div>
+        <span class="doc-link">PDF →</span>
+      </a>
+      <a href="docs/07_Polityka_Antykorupcyjna.pdf" class="doc-item" target="_blank">
+        <div class="doc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="doc-info"><h4>Polityka Antykorupcyjna</h4><p>Zasady przeciwdziałania korupcji</p></div>
+        <span class="doc-link">PDF →</span>
+      </a>
+      <a href="docs/08_Polityka_Konfliktu_Interesow.pdf" class="doc-item" target="_blank">
+        <div class="doc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="doc-info"><h4>Polityka Konfliktu Interesów</h4><p>Zarządzanie sytuacjami konfliktowymi</p></div>
+        <span class="doc-link">PDF →</span>
+      </a>
+      <a href="docs/10_Polityka_Srodowiskowa.pdf" class="doc-item" target="_blank">
+        <div class="doc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="doc-info"><h4>Polityka Środowiskowa</h4><p>Zrównoważony rozwój i ochrona środowiska</p></div>
+        <span class="doc-link">PDF →</span>
+      </a>
+      <a href="docs/11_Procedura_Zarzadzania_Ryzykiem.pdf" class="doc-item" target="_blank">
+        <div class="doc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="doc-info"><h4>Procedura Zarządzania Ryzykiem</h4><p>Identyfikacja i minimalizacja ryzyka</p></div>
+        <span class="doc-link">PDF →</span>
+      </a>
+    </div>
+  </div>
+
+  <p style="margin-top:48px;font-size:0.8rem;color:#888">Stageless / Artyści Uliczni Krakowa © 2026. Wszelkie prawa zastrzeżone.</p>
+</div>
+</body>
+</html>
