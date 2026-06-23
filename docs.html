@@ -92,5 +92,14 @@ a:hover{text-decoration:underline}
 
   <p style="margin-top:48px;font-size:0.8rem;color:#888">Stageless / Artyści Uliczni Krakowa © 2026. Wszelkie prawa zastrzeżone.</p>
 </div>
+<script>
+// === CLICK SOUND ===
+(function(){
+  const snd=new Audio('assets/sound/click.mp3');snd.volume=0.25;
+  document.querySelectorAll('a,.doc-item').forEach(function(el){
+    el.addEventListener('click',function(){snd.currentTime=0;snd.play().catch(function(){})});
+  });
+})();
+</script>
 </body>
 </html>
